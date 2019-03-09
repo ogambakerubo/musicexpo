@@ -2,24 +2,952 @@
 <html lang="en" dir="ltr">
 
 <head>
+
+  <title>HashTag Studio</title>
   <meta charset="utf-8">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif]-->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/cue.css">
+  <link rel="stylesheet" href="css/main.css" class="color-switcher-link">
+  <link rel="stylesheet" href="css/shop.css" class="color-switcher-link">
+  <link rel="stylesheet" href="css/mediaelementplayer-legacy.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
 
-  <!-- Add favicon -->
-  <link rel="shortcut icon" href="static/images/favicon.png">
-
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-  <title>DJ Flex</title>
 </head>
 
 <body>
+  <!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+  <div class="preloader">
+    <div class="preloader_image"></div>
+  </div>
+  <!-- search modal -->
+  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal"> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">
+        <i class="rt-icon2-cross2"></i>
+      </span>
+    </button>
+    <div class="widget widget_search">
+      <form method="get" class="searchform search-form form-inline" action="./">
+        <div class="form-group bottommargin_0"> <input type="text" value="" name="search" class="form-control" placeholder="Search keyword" id="modal-search-input"> </div> <button type="submit" class="theme_button no_bg_button">Search</button>
+      </form>
+    </div>
+  </div>
+  <!-- Unyson messages modal -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+    <div class="fw-messages-wrap ls with_padding">
+      <!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+      <!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+    </div>
+  </div>
+  <!-- eof .modal -->
+  <!-- wrappers for visual page editor and boxed version of template -->
+  <div id="canvas">
+    <div id="box_wrapper">
+      <!-- template sections -->
+      <section class="page_topline ds table_section table_section_md">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 text-center text-md-left">
+              <div class="inline-content medium">
+                <p> <i class="fa fa-phone highlight rightpadding_5" aria-hidden="true"></i> +254-719-674-633 </p>
+                <p class="greylinks"> <i class="fa fa-envelope highlight rightpadding_5" aria-hidden="true"></i> <a href="mailto:pstarkenya@gmail.com">pstarkenya@gmail.com</a> </p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 text-center text-md-center"> <a class="social-icon socicon-facebook" href="#" title="Facebook"></a> <a class="social-icon socicon-twitter" href="#" title="Twitter"></a> <a class="social-icon socicon-google"
+                href="#" title="Google"></a> <a class="social-icon socicon-linkedin" href="#" title="LinkedIn"></a> <a class="social-icon socicon-youtube" href="#" title="Youtube"></a> <a class="social-icon socicon-instagram" href="#" title="Instagram"></a></div>
+            <div class="col-md-4 col-sm-12 text-center text-md-right">
+              <div class="widget widget_search">
+                <form method="get" class="searchform" action="./">
+                  <div class="form-group margin_0"> <label class="sr-only" for="widget-search-topline">Search for:</label> <input id="widget-search-topline" type="text" value="" name="search" class="form-control" placeholder="Search Keyword"> </div>
+                  <button type="submit" class="theme_button no_bg_button color1">Search</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <header class="page_header header_white toggler_xs_right tall_header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 display_table">
+              <div class="header_left_logo display_table_cell"> <a href="#" class="logo top_logo">
+                  <img src="images/logo.png" alt="">
+                </a> </div>
+              <div class="header_mainmenu display_table_cell text-center">
+                <!-- main nav start -->
+                <nav class="mainmenu_wrapper">
+                  <ul class="mainmenu nav sf-menu">
+                    <li class="active"> <a href="#canvas">Home</a> </li>
+                    <li> <a href="#about">About</a> </li>
+                    <li> <a href="#featured-video">Featured</a> </li>
+                    <li> <a href="#latest-album">Latest</a> </li>
+                    <li> <a href="#gallery">Photos</a> </li>
+                    <li> <a href="#gigs">Gigs</a> </li>
+                    <li> <a href="#news">News</a> </li>
+                  </ul>
+                </nav>
+                <!-- eof main nav -->
+                <!-- header toggler --><span class="toggle_menu"><span></span></span>
+              </div>
+              <div class="header_right_buttons display_table_cell text-right hidden-xs"> <a href="#" class="theme_button color1">Buy tickets</a> </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="intro_section page_mainslider ds">
+        <div class="flexslider" data-dots="true" data-nav="te">
+          <ul class="slides">
+            <li> <img src="images/slide01.jpg" alt="">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <div class="slide_description_wrapper">
+                      <div class="slide_description">
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <h2> <span class="small">Music is your</span> Time Machine </h2>
+                        </div>
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <p> We hold our notes longer, better, and higher. We put the mental in instrumental and the cool in musicool. </p>
+                        </div>
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <p class="topmargin_25 inline-content vertical-margin"> <a href="#about" class="theme_button inverse min_width_button">
+                              About me
+                            </a> <a href="albums.html" class="theme_button color1 min_width_button">
+                              My albums
+                            </a> </p>
+                        </div>
+                      </div>
+                      <!-- eof .slide_description -->
+                    </div>
+                    <!-- eof .slide_description_wrapper -->
+                  </div>
+                  <!-- eof .col-* -->
+                </div>
+                <!-- eof .row -->
+              </div>
+              <!-- eof .container -->
+            </li>
+            <li> <img src="images/slide01.jpg" alt="">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <div class="slide_description_wrapper">
+                      <div class="slide_description">
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <h2> <span class="small">Let the</span> Music speak! </h2>
+                        </div>
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <p> We hold our notes longer, better, and higher. We put the mental in instrumental and the cool in musicool. </p>
+                        </div>
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <p class="topmargin_25 inline-content vertical-margin"> <a href="#about" class="theme_button inverse min_width_button">
+                              About me
+                            </a> <a href="albums.html" class="theme_button color1 min_width_button">
+                              My albums
+                            </a> </p>
+                        </div>
+                      </div>
+                      <!-- eof .slide_description -->
+                    </div>
+                    <!-- eof .slide_description_wrapper -->
+                  </div>
+                  <!-- eof .col-* -->
+                </div>
+                <!-- eof .row -->
+              </div>
+              <!-- eof .container -->
+            </li>
+            <li> <img src="images/slide01.jpg" alt="">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <div class="slide_description_wrapper">
+                      <div class="slide_description">
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <h2> <span class="small">Like music</span> to my ears. </h2>
+                        </div>
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <p> We hold our notes longer, better, and higher. We put the mental in instrumental and the cool in musicool. </p>
+                        </div>
+                        <div class="intro-layer" data-animation="fadeInUp">
+                          <p class="topmargin_25 inline-content vertical-margin"> <a href="#about" class="theme_button inverse min_width_button">
+                              About me
+                            </a> <a href="albums.html" class="theme_button color1 min_width_button">
+                              My albums
+                            </a> </p>
+                        </div>
+                      </div>
+                      <!-- eof .slide_description -->
+                    </div>
+                    <!-- eof .slide_description_wrapper -->
+                  </div>
+                  <!-- eof .col-* -->
+                </div>
+                <!-- eof .row -->
+              </div>
+              <!-- eof .container -->
+            </li>
+          </ul>
+        </div>
+        <!-- eof flexslider -->
+      </section>
+      <section id="about" class="ls section_padding_top_40 section_padding_bottom_40 table_section table_section_md columns_margin_bottom_30">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-md-push-6 text-center"> <img src="images/about.jpg" alt=""> </div>
+            <div class="col-md-6 col-md-pull-6">
+              <h6 class="highlight">about me</h6>
+              <h2 class="section_header">Info/Bio</h2>
+              <p class="fontsize_20">At only 30 years of age, DJ has already established himself as the most successful american artist of the past two decades.</p>
+              <p id="demo" class="collapse">American DJ and EDM producer DJ Bishop has released one studio album, and eight singles. Black sunglasses, a baseball cap flipped backwards, and his amazingly strong sense for hits that generate 9-digit
+                streams and move crowds across the globe is what distinguishes him as an extremely talented and one of the most successful USA artists: Tyler Bishop. The Lower Saxony native is actually more the reserved type, who would much rather
+                stand behind his decks and let his music speak for itself. Mr. Bishop: a picture-perfect career. Making his way from a local insider to the nation’s “next big thing” and eventually to an internationally acclaimed mega star. At only
+                30 years of age, the producer and DJ has already established himself as the most successful American artist of the past two decades.</p> <button type="button" class="toggle" data-toggle="collapse" data-target="#demo">
+                <span class="glyphicon glyphicon-collapse-down"></span> <span class="more-link"> Read more</span>
+              </button>
+              <div class="inline-content topmargin_25"> <span class="small-text">Follow Me:</span> <span>
+                  <a class="social-icon socicon-facebook" href="#" title="Facebook"></a>
+                  <a class="social-icon socicon-twitter" href="#" title="Twitter"></a>
+                  <a class="social-icon socicon-google" href="#" title="Google"></a>
+                  <a class="social-icon socicon-linkedin" href="#" title="LinkedIn"></a>
+                  <a class="social-icon socicon-youtube" href="#" title="Youtube"></a>
+                  <a class="social-icon socicon-instagram" href="#" title="Instagram"></a>
+                </span> </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="featured-video" class="ds background_cover section_padding_top_150 section_padding_bottom_150">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center"> <a href="https://www.youtube.com/watch?v=8ZGx2GyytHc" class="theme_button inverse round_button margin_0" data-gal="prettyPhoto[gal-video]">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </a>
+              <h5 class="highlight topmargin_40">New hot video!</h5>
+              <h2 class="section_header bottommargin_0"> HashTag Studio - Miami 2018 festival edm mix #30 </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="latest-album" class="ls ms section_padding_top_150 section_padding_bottom_100 columns_margin_bottom_30 columns_padding_25">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h6 class="highlight">discography</h6>
+              <h2 class="section_header">Latest Album</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-sm-7">
+              <div class="vertical-item slide-media opened-media">
+                <div class="item-media-wrap"> <img src="images/albums/02.jpg" alt="">
+                  <div class="item-media back-media"> <img src="images/albums/cd.png" alt=""> </div>
+                  <div class="item-media "> <img src="images/albums/02.jpg" alt="">
+                    <div class="media-links no-overlay">
+                      <div class="links-wrap"> <span>
+                          <i class="fa fa-play highlight" aria-hidden="true"></i>
+                        </span> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item-content topmargin_35">
+                  <div class="star-rating" title="Rated 4.0 out of 5"> <span style="width:80%">
+                      <strong class="rating">4.0</strong> out of 5
+                    </span> </div>
+                  <h4 class="entry-title topmargin_5"> <a href="albums.html">"Welcome to my hood"</a> </h4>
+                  <p> <strong class="grey">Released:</strong> 13/09/2017 <br> <strong class="grey">Label:</strong> I am the Best, RED <br> <strong class="grey">Format:</strong> Digital download, CD <br> <strong class="grey">Certifications:</strong>
+                    RIAA: Gold </p>
+                  <p class="topmargin_30"> <a href="#" class="theme_button color1">Get on itunes now!</a> </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-12">
+              <article>
+                <div class="entry-content">
+                  <div class="cue-playlist-container">
+                    <div class="cue-playlist cue-theme-default">
+                      <ol class="cue-tracks"></ol>
+                    </div>
+                    <script type="application/json" class="cue-playlist-data">
+                      {
+                        "embed_link": "",
+                        "permalink": "",
+                        "skin": "",
+                        "tracks": [{
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 1,
+                            "audioUrl": "https://s3.envato.com/files/229455919/preview.mp3",
+                            "format": "mp3",
+                            "length": "5:55",
+                            "title": "Upbeat & Inspiring",
+                            "order": 0,
+                            "mp3": "https://s3.envato.com/files/229455919/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "5:55"
+                            },
+                            "src": "https://s3.envato.com/files/229455919/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/01.jpg"
+                            }
+                          },
+                          {
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 2,
+                            "audioUrl": "https://0.s3.envato.com/files/216844247/preview.mp3",
+                            "format": "mp3",
+                            "length": "7:48",
+                            "title": "Inspiring Uplifting Corporate",
+                            "order": 0,
+                            "mp3": "https://0.s3.envato.com/files/216844247/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "7:48"
+                            },
+                            "src": "https://0.s3.envato.com/files/216844247/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/02.jpg"
+                            }
+                          },
+                          {
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 3,
+                            "audioUrl": "https://0.s3.envato.com/files/196824856/preview.mp3",
+                            "format": "mp3",
+                            "length": "11:36",
+                            "title": "Inspiration Kit",
+                            "order": 0,
+                            "mp3": "https://0.s3.envato.com/files/196824856/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "11:36"
+                            },
+                            "src": "https://0.s3.envato.com/files/196824856/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/03.jpg"
+                            }
+                          },
+                          {
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 4,
+                            "audioUrl": "https://0.s3.envato.com/files/179391137/preview.mp3",
+                            "format": "mp3",
+                            "length": "4:26",
+                            "title": "Happy Upbeat Ukulele",
+                            "order": 0,
+                            "mp3": "https://0.s3.envato.com/files/179391137/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "4:26"
+                            },
+                            "src": "https://0.s3.envato.com/files/179391137/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/04.jpg"
+                            }
+                          },
+                          {
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 5,
+                            "audioUrl": "https://0.s3.envato.com/files/175505487/preview.mp3",
+                            "format": "mp3",
+                            "length": "3:30",
+                            "title": "Motivational and Inspiring",
+                            "order": 0,
+                            "mp3": "https://0.s3.envato.com/files/175505487/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "3:30"
+                            },
+                            "src": "https://0.s3.envato.com/files/175505487/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/05.jpg"
+                            }
+                          },
+                          {
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 3,
+                            "audioUrl": "https://0.s3.envato.com/files/196824856/preview.mp3",
+                            "format": "mp3",
+                            "length": "11:36",
+                            "title": "Inspiration Kit",
+                            "order": 0,
+                            "mp3": "https://0.s3.envato.com/files/196824856/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "11:36"
+                            },
+                            "src": "https://0.s3.envato.com/files/196824856/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/03.jpg"
+                            }
+                          },
+                          {
+                            "artist": "AndreySkarlat",
+                            "artworkId": 0,
+                            "artworkUrl": "#0",
+                            "audioId": 1,
+                            "audioUrl": "https://s3.envato.com/files/229455919/preview.mp3",
+                            "format": "mp3",
+                            "length": "5:55",
+                            "title": "Upbeat & Inspiring",
+                            "order": 0,
+                            "mp3": "https://s3.envato.com/files/229455919/preview.mp3",
+                            "meta": {
+                              "artist": "AndreySkarlat",
+                              "length_formatted": "5:55"
+                            },
+                            "src": "https://s3.envato.com/files/229455919/preview.mp3",
+                            "thumb": {
+                              "src": "images/albums/01.jpg"
+                            }
+                          }
+                        ]
+                      }
+                    </script>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gallery" class="ls section_padding_top_65 columns_padding_0">
+        <div class="container-fluid">
+          <div class="col-sm-12 bottommargin_0">
+            <div class="filters carousel_filters"> <a href="#" class="selected" data-filter="*">All</a> <a href="#" data-filter=".music">Music</a> <a href="#" data-filter=".life">Life</a> <a href="#" data-filter=".concerts">Concerts</a> <a href="#"
+                data-filter=".backstage">Backstage</a> <a href="#" data-filter=".new">New</a> </div>
+            <div class="owl-carousel owl-center-scale gallery-carousel" data-nav="true" data-dots="false" data-margin="0" data-center="true" data-loop="true" data-responsive-xlg="6" data-responsive-lg="5" data-responsive-md="4" data-responsive-sm="3"
+              data-responsive-xs="2" data-responsive-xxs="1" data-filters=".carousel_filters">
+              <div class="vertical-item music">
+                <div class="item-media"> <img src="images/gallery-square/01.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/01.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item life">
+                <div class="item-media"> <img src="images/gallery-square/02.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/02.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item concerts">
+                <div class="item-media"> <img src="images/gallery-square/03.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/03.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item backstage">
+                <div class="item-media"> <img src="images/gallery-square/04.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/04.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item new">
+                <div class="item-media"> <img src="images/gallery-square/05.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/05.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item music">
+                <div class="item-media"> <img src="images/gallery-square/06.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/06.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item life">
+                <div class="item-media"> <img src="images/gallery-square/07.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/07.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item concerts">
+                <div class="item-media"> <img src="images/gallery-square/08.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/08.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item backstage">
+                <div class="item-media"> <img src="images/gallery-square/09.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/09.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item new">
+                <div class="item-media"> <img src="images/gallery-square/10.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/10.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item farming">
+                <div class="item-media"> <img src="images/gallery-square/11.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/11.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="vertical-item farm">
+                <div class="item-media"> <img src="images/gallery-square/12.jpg" alt="" />
+                  <div class="media-links">
+                    <div class="links-wrap"> <a class="p-view prettyPhoto" title="" data-gal="prettyPhoto[gal]" href="images/gallery/12.jpg"></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="gigs" class="ls section_padding_top_150 section_padding_bottom_150">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h6 class="highlight">Concerts</h6>
+              <h2 class="section_header">Upcoming Gigs</h2>
+              <div class="owl-carousel topmargin_60" data-dots="false" data-nav="true" data-responsive-lg="3">
+                <div class="vertical-item content-absolute hover-entry-content">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/events/01.jpg" alt=""> </div>
+                  <div class="item-content ds">
+                    <h4 class="entry-title bottommargin_0"> <a href="blog.html">Music art united</a> </h4>
+                    <div class="media small-media small-text grey inline-block margin_0 hover-hidden">
+                      <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                      <div class="media-body"> 11/08/2017 </div>
+                    </div>
+                    <div class="entry-content grey">
+                      <div class="entry-meta small-text text-left">
+                        <div class="content-justify">
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 11/08/2017 </div>
+                          </div>
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 05:00 PM </div>
+                          </div>
+                        </div>
+                        <div class="media small-media margin_0">
+                          <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                          <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                        </div>
+                      </div>
+                      <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vertical-item content-absolute hover-entry-content">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/events/02.jpg" alt=""> </div>
+                  <div class="item-content ds">
+                    <h4 class="entry-title bottommargin_0"> <a href="blog.html">Minimal Music night</a> </h4>
+                    <div class="media small-media small-text grey inline-block margin_0 hover-hidden">
+                      <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                      <div class="media-body"> 13/09/2017 </div>
+                    </div>
+                    <div class="entry-content grey">
+                      <div class="entry-meta small-text text-left">
+                        <div class="content-justify">
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 13/09/2017 </div>
+                          </div>
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 05:00 PM </div>
+                          </div>
+                        </div>
+                        <div class="media small-media margin_0">
+                          <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                          <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                        </div>
+                      </div>
+                      <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vertical-item content-absolute hover-entry-content">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/events/03.jpg" alt=""> </div>
+                  <div class="item-content ds">
+                    <h4 class="entry-title bottommargin_0"> <a href="blog.html">Summer night party</a> </h4>
+                    <div class="media small-media small-text grey inline-block margin_0 hover-hidden">
+                      <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                      <div class="media-body"> 25/07/2017 </div>
+                    </div>
+                    <div class="entry-content grey">
+                      <div class="entry-meta small-text text-left">
+                        <div class="content-justify">
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 25/07/2017 </div>
+                          </div>
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 05:00 PM </div>
+                          </div>
+                        </div>
+                        <div class="media small-media margin_0">
+                          <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                          <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                        </div>
+                      </div>
+                      <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vertical-item content-absolute hover-entry-content">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/events/01.jpg" alt=""> </div>
+                  <div class="item-content ds">
+                    <h4 class="entry-title bottommargin_0"> <a href="team-single.html">Music art united</a> </h4>
+                    <div class="media small-media small-text grey inline-block margin_0 hover-hidden">
+                      <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                      <div class="media-body"> 11/08/2017 </div>
+                    </div>
+                    <div class="entry-content grey">
+                      <div class="entry-meta small-text text-left">
+                        <div class="content-justify">
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 11/08/2017 </div>
+                          </div>
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 05:00 PM </div>
+                          </div>
+                        </div>
+                        <div class="media small-media margin_0">
+                          <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                          <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                        </div>
+                      </div>
+                      <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vertical-item content-absolute hover-entry-content">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/events/02.jpg" alt=""> </div>
+                  <div class="item-content ds">
+                    <h4 class="entry-title bottommargin_0"> <a href="blog.html">Minimal Music night</a> </h4>
+                    <div class="media small-media small-text grey inline-block margin_0 hover-hidden">
+                      <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                      <div class="media-body"> 13/09/2017 </div>
+                    </div>
+                    <div class="entry-content grey">
+                      <div class="entry-meta small-text text-left">
+                        <div class="content-justify">
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 13/09/2017 </div>
+                          </div>
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 05:00 PM </div>
+                          </div>
+                        </div>
+                        <div class="media small-media margin_0">
+                          <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                          <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                        </div>
+                      </div>
+                      <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="vertical-item content-absolute hover-entry-content">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/events/03.jpg" alt=""> </div>
+                  <div class="item-content ds">
+                    <h4 class="entry-title bottommargin_0"> <a href="blog.html">Summer night party</a> </h4>
+                    <div class="media small-media small-text grey inline-block margin_0 hover-hidden">
+                      <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                      <div class="media-body"> 25/07/2017 </div>
+                    </div>
+                    <div class="entry-content grey">
+                      <div class="entry-meta small-text text-left">
+                        <div class="content-justify">
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-calendar cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 25/07/2017 </div>
+                          </div>
+                          <div class="media small-media inline-block margin_0">
+                            <div class="media-left"> <i class="fa fa-clock-o cons-width highlight" aria-hidden="true"></i> </div>
+                            <div class="media-body"> 05:00 PM </div>
+                          </div>
+                        </div>
+                        <div class="media small-media margin_0">
+                          <div class="media-left"> <i class="fa fa-map-marker cons-width highlight" aria-hidden="true"></i> </div>
+                          <div class="media-body"> Square Hilbrow, Milan, Italy. </div>
+                        </div>
+                      </div>
+                      <div class="topmargin_20"> <a href="#" class="theme_button inverse">Buy Tickets</a> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="subscribe" class="ds parallax section_subscribe section_padding_top_150 section_padding_bottom_150 table_section table_section_md">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 text-center text-md-left">
+              <h6 class="highlight margin_0">Subscribe to our</h6>
+              <h3 class="margin_0">Newsletter:</h3>
+            </div>
+            <div class="col-lg-9 col-md-8 text-center">
+              <div class="widget widget_mailchimp">
+                <form class="signup" action="./" method="get">
+                  <div class="subs-elements-wrapper">
+                    <div class="form-group margin_0"> <input class="mailchimp_email form-control text-center" name="email" type="email" placeholder="Enter Your Email"> </div> <button type="submit" class="theme_button color1">Subscribe now!</button>
+                  </div>
+                  <div class="response"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="news" class="ls section_padding_top_150 section_padding_bottom_150">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h6 class="highlight">My blog</h6>
+              <h2 class="section_header">Latest news</h2>
+              <div class="owl-carousel topmargin_60" data-responsive-lg="3" data-dots="true">
+                <article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/gallery/11.jpg" alt="">
+                    <div class="media-links"> <a href="blog.html" class="abs-link"></a> </div>
+                  </div>
+                  <div class="item-content">
+                    <header class="entry-header">
+                      <div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
+                          <a href="#0">Life</a>
+                        </span> <span class="greylinks">
+                          <a href="blog.html">
+                            <time datetime="2017-10-03T08:50:40+00:00">
+                              14/09/2017
+                            </time>
+                          </a>
+                        </span> </div>
+                      <h4 class="entry-title"> <a href="blog.html">I stayed at the Resident Hotel In Miami</a> </h4>
+                    </header>
+                    <div class="entry-content">
+                      <p>Jowl pork beef ball tip burgdoggen. Pork chop jowl boudin, pork loin alcatra leberkas cow tenderloin rump shankle bacon.</p>
+                    </div>
+                  </div>
+                  <footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
+                    <div class="inline-content"> <a href="#0">
+                        <i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
+                        <span>Admin</span>
+                      </a> <a href="#0">
+                        <i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
+                        <span class="value">1263</span>
+                      </a> <span>
+                        <i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
+                        <span class="value">3698</span> </span>
+                    </div>
+                  </footer>
+                </article>
+                <article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/gallery/18.jpg" alt="">
+                    <div class="media-links"> <a href="blog.html" class="abs-link"></a> </div>
+                  </div>
+                  <div class="item-content">
+                    <header class="entry-header">
+                      <div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
+                          <a href="#0">Music</a>
+                        </span> <span class="greylinks">
+                          <a href="blog.html">
+                            <time datetime="2017-10-03T08:50:40+00:00">
+                              15/09/2017
+                            </time>
+                          </a>
+                        </span> </div>
+                      <h4 class="entry-title"> <a href="blog.html">My new album out "Tired eyes"</a> </h4>
+                    </header>
+                    <div class="entry-content">
+                      <p>Swine biltong tenderloin, ball tip andouille cupim kevin filet mignon sirloin drumstick shoulder. Salami ham hock ground.</p>
+                    </div>
+                  </div>
+                  <footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
+                    <div class="inline-content"> <a href="#0">
+                        <i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
+                        <span>Admin</span>
+                      </a> <a href="#0">
+                        <i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
+                        <span class="value">7523</span>
+                      </a> <span>
+                        <i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
+                        <span class="value">7812</span> </span>
+                    </div>
+                  </footer>
+                </article>
+                <article class="vertical-item content-padding with_background rounded overflow_hidden text-center">
+                  <div class="item-media top_rounded overflow_hidden"> <img src="images/gallery/19.jpg" alt="">
+                    <div class="media-links"> <a href="blog.html" class="abs-link"></a> </div>
+                  </div>
+                  <div class="item-content">
+                    <header class="entry-header">
+                      <div class="entry-meta small-text content-justify"> <span class="categories-links highlightlinks">
+                          <a href="#0">Concerts</a>
+                        </span> <span class="greylinks">
+                          <a href="blog.html">
+                            <time datetime="2017-10-03T08:50:40+00:00">
+                              18/09/2017
+                            </time>
+                          </a>
+                        </span> </div>
+                      <h4 class="entry-title"> <a href="blog.html">Non-stop party in Berlin</a> </h4>
+                    </header>
+                    <div class="entry-content">
+                      <p>Shankle biltong boudin doner. Jerky prosciutto flank burgdoggen pork beef ribs. Tenderloin tongue chicken beef ribs.</p>
+                    </div>
+                  </div>
+                  <footer class="entry-meta entry-footer small-text greylinks bottom_color_border">
+                    <div class="inline-content"> <a href="#0">
+                        <i class="fa fa-user rightpadding_5" aria-hidden="true"></i>
+                        <span>Admin</span>
+                      </a> <a href="#0">
+                        <i class="fa fa-comment rightpadding_5" aria-hidden="true"></i>
+                        <span class="value">8459</span>
+                      </a> <span>
+                        <i class="fa fa-eye rightpadding_5" aria-hidden="true"></i>
+                        <span class="value">9852</span> </span>
+                    </div>
+                  </footer>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="page_footer ds section_padding_top_100 section_padding_bottom_75">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <div class="widget widget_text"> <img src="images/logo-dark.png" alt="">
+                <p class="topmargin_20">You can purchase my music albums, where you will find all my tracks, on iTunes, Google Play, Amazon, Spotify or SoundCloud.</p>
+                <div class="topmargin_25"> <a href="#" class="social-icon border-icon rounded-icon socicon-apple"></a> <a href="#" class="social-icon border-icon rounded-icon socicon-play"></a> <a href="#" class="social-icon border-icon rounded-icon socicon-amazon"></a>
+                  <a href="#" class="social-icon border-icon rounded-icon socicon-spotify"></a> <a href="#" class="social-icon border-icon rounded-icon socicon-soundcloud"></a> </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 text-center">
+              <div class="widget widget_text">
+                <h4 class="widget-title"> Contact Form </h4>
+                <form class="contact-form" method="post" action="./">
+                  <div class="bottommargin_10"> <label for="name-footer">Your Name <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="" name="name" id="name-footer" class="form-control text-center"
+                      placeholder="Full Name*"> </div>
+                  <div class="bottommargin_10">
+                    <label for="message-footer">Message</label> <textarea aria-required="true" rows="3" cols="45" name="message" id="message-footer" class="form-control text-center" placeholder="Message..."></textarea> </div>
+                  <div class="contact-form-submit topmargin_10">
+                    <button type="submit" id="contact_form_submit_footer" name="contact_submit" class="theme_button color1">Send Message</button> </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 text-center">
+              <div class="widget widget_text">
+                <h4 class="widget-title"> My Contacts </h4>
+                <div>
+                  <div class="media small-media inline-block">
+                    <div class="media-left"> <i class="fa fa-map-marker highlight" aria-hidden="true"></i> </div>
+                    <div class="media-body"> Some Adress, Some City, CA 47812 </div>
+                  </div>
+                  <div class="media small-media inline-block">
+                    <div class="media-left"> <i class="fa fa-phone highlight" aria-hidden="true"></i> </div>
+                    <div class="media-body"> +254-719-674-633 </div>
+                  </div>
+                  <div class="media small-media inline-block">
+                    <div class="media-left"> <i class="fa fa-print highlight" aria-hidden="true"></i> </div>
+                    <div class="media-body"> Some Adress, Some City, CA 47812 </div>
+                  </div>
+                  <div class="media small-media greylinks inline-block">
+                    <div class="media-left"> <i class="fa fa-envelope highlight" aria-hidden="true"></i> </div>
+                    <div class="media-body"> <a href="mailto:pstarkenya@gmail.com">pstarkenya@gmail.com</a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <section class="ls page_copyright section_padding_top_40 section_padding_bottom_40">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <div class="bottommargin_10"> <a class="social-icon socicon-facebook" href="#" title="Facebook"></a> <a class="social-icon socicon-twitter" href="#" title="Twitter"></a> <a class="social-icon socicon-youtube" href="#" title="Youtube"></a>
+                <a class="social-icon socicon-google" href="#" title="Google"></a> </div>
+              <p class="small-text">&copy; Copyright 2017. All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- eof #box_wrapper -->
+  </div>
+  <!-- eof #canvas -->
+  <script src="js/compressed.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="js/mediaelement-migrate.min.js"></script>
+  <script type='text/javascript'>
+    /* <![CDATA[ */
+    //toggle collaspe
+    $(document).ready(function() {
+      $("#demo").on("hide.bs.collapse", function() {
+        $(".toggle").html('<span class="glyphicon glyphicon-collapse-down"></span> Read more');
+      });
+      $("#demo").on("show.bs.collapse", function() {
+        $(".toggle").html('<span class="glyphicon glyphicon-collapse-up"></span> Read less');
+      });
+    });
 
+    var _cueSettings = {
+      "l10n": {
+        "nextTrack": "Next Track",
+        "previousTrack": "Previous Track",
+        "togglePlayer": "Toggle Player",
+        "togglePlaylist": "Toggle Playlist"
+      }
+    };
+    /* ]]> */
+  </script>
+  <script src="js/cue.min.js"></script>
 </body>
 
 </html>
