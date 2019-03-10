@@ -1,19 +1,5 @@
 /*
 ==============================================
-CSS3 ANIMATION CHEAT SHEET
-==============================================
-
-Made by Justin Aguilar
-
-www.justinaguilar.com/animations/
-
-Questions, comments, concerns, love letters:
-justin@justinaguilar.com
-==============================================
-*/
-
-/*
-==============================================
 slideDown
 ==============================================
 */
@@ -498,7 +484,7 @@ expandOpen
 	}
 	100% {
 		-webkit-transform: scale(1);
-	}	
+	}
 }
 
 /*
@@ -601,7 +587,7 @@ hatch
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 
+	-webkit-transform-origin: 50% 100%;
 
 	visibility: visible;
 }
@@ -627,7 +613,7 @@ hatch
 	}
 	100% {
 		transform: rotate(0deg);
-	}					
+	}
 }
 
 @-webkit-keyframes hatch {
@@ -674,7 +660,7 @@ bounce
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 
+	-webkit-transform-origin: 50% 100%;
 }
 
 @keyframes bounce {
@@ -834,7 +820,7 @@ tossing
 	}
 	100% {
 		transform: rotate(-4deg);
-	}		
+	}
 }
 
 @-webkit-keyframes tossing {
@@ -867,7 +853,7 @@ pullUp
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 
+	-webkit-transform-origin: 50% 100%;
 }
 
 @keyframes pullUp {
@@ -891,7 +877,7 @@ pullUp
 	}
 	100% {
 		transform: scaleY(1);
-	}			
+	}
 }
 
 @-webkit-keyframes pullUp {
@@ -936,7 +922,7 @@ pullDown
 
 	transform-origin: 50% 0%;
 	-ms-transform-origin: 50% 0%;
-	-webkit-transform-origin: 50% 0%; 
+	-webkit-transform-origin: 50% 0%;
 }
 
 @keyframes pullDown {
@@ -960,7 +946,7 @@ pullDown
 	}
 	100% {
 		transform: scaleY(1);
-	}			
+	}
 }
 
 @-webkit-keyframes pullDown {
@@ -1005,7 +991,7 @@ stretchLeft
 
 	transform-origin: 100% 0%;
 	-ms-transform-origin: 100% 0%;
-	-webkit-transform-origin: 100% 0%; 
+	-webkit-transform-origin: 100% 0%;
 }
 
 @keyframes stretchLeft {
@@ -1029,7 +1015,7 @@ stretchLeft
 	}
 	100% {
 		transform: scaleX(1);
-	}			
+	}
 }
 
 @-webkit-keyframes stretchLeft {
@@ -1074,7 +1060,7 @@ stretchRight
 
 	transform-origin: 0% 0%;
 	-ms-transform-origin: 0% 0%;
-	-webkit-transform-origin: 0% 0%; 
+	-webkit-transform-origin: 0% 0%;
 }
 
 @keyframes stretchRight {
@@ -1098,7 +1084,7 @@ stretchRight
 	}
 	100% {
 		transform: scaleX(1);
-	}			
+	}
 }
 
 @-webkit-keyframes stretchRight {
